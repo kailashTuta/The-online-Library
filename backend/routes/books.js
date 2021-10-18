@@ -1,7 +1,10 @@
 const express = require('express');
+const { remove } = require('../models/Book');
 const router = express.Router()
 const Book = require('../models/Book')
 
+
+// GETS All BOOKS BACK
 router.get('/', async (req, res) => {
     try {
         const books = await Book.find();
@@ -12,6 +15,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+// SUBMITS A BOOK
 router.post('/', async (req, res) => {
     const book = new Book({
         title: req.body.title,
@@ -36,6 +40,41 @@ router.post('/', async (req, res) => {
 
 })
 
+//SPECIFIC BOOK
+router.get('/:bookId', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.bookId)
+        res.json(book);
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
+
+// DELETE POST
+router.delete('/:bookId', async (req, res) => {
+    try {
+        const removedBook = await Book.remove({ _id: req.params.bookId })
+        res.json(removedBook)
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
+
+// UPDATE A BOOK    
+router.patch('/:bookId', async (req, res) => {
+    try {
+        const updatedBook = await Book.updateOne(
+            { _id: req.params.bookId },
+            { $set: { title: req.body.title } }
+        );
+        res.json(updatedBook);
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
 
 
 module.exports = router;
