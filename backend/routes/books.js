@@ -53,7 +53,7 @@ router.get('/:bookId', async (req, res) => {
 // DELETE POST
 router.delete('/:bookId', async (req, res) => {
     try {
-        const removedBook = await Book.remove({ _id: req.params.bookId })
+        const removedBook = await Book.deleteOne({ _id: req.params.bookId })
         res.json(removedBook)
     }
     catch (err) {
