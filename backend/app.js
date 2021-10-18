@@ -4,6 +4,15 @@ const mongoose = require('mongoose');
 require('dotenv/config')
 
 
+// Import Routes
+const bookRoutes = require('./routes/books')
+
+app.use('/books', bookRoutes)
+
+// ROUTES
+app.get('/', (req, res) => {
+    res.send('We are on home');
+})
 
 // Connect to DB
 mongoose.connect(
