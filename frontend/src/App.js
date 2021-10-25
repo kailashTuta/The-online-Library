@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/Footer';
 import { NavabarComp } from './components/NavabarComp'
 
 
@@ -9,6 +10,7 @@ function App() {
       <div className="content">
         This is the content.
       </div>
+      <Footer />
     </div>
   );
 }
