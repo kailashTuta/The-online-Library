@@ -1,9 +1,14 @@
 import './App.css';
+import { NavabarComp } from './components/NavabarComp'
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <NavabarComp />
+      <div className="content">
+        This is the content.
+      </div>
     </div>
   );
 }
