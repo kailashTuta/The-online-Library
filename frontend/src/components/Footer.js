@@ -6,10 +6,12 @@ const Footer = () => {
             <footer>
                 <div className="footer-content">
                     <h3>The Online Library</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid obcaecati fuga consequatur omnis.</p>
+                    <p>
+                        A service dedicated to students of the University Distance learning community. We provide online resources, professional support, and guidance to all our students whenever, and from wherever they have chosen to study.
+                    </p>
 
                     <ul className="socials">
-                        <li><a href="$"><i className="fab fa-facebook-f"></i></a></li>
+                        <li><a href="$"><i className="fab fa-facebook"></i></a></li>
                         <li><a href="$"><i className="fab fa-instagram"></i></a></li>
                         <li><a href="$"><i className="fab fa-twitter"></i></a></li>
                         <li><a href="$"><i className="fab fa-linkedin"></i></a></li>
