@@ -1,38 +1,37 @@
 import React from 'react'
-import { Carousel, Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import img1 from '../assets/img1.jpg'
 
 
 const Home = () => {
     return (
         <div>
-            <Carousel fade className="mb-3">
-                <Carousel.Item>
-                    <img src={img1} className="d-block w-100" alt="Img1" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={img1} className="d-block w-100" alt="Img1" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={img1} className="d-block w-100" alt="Img1" />
-                </Carousel.Item>
-            </Carousel>
+
+            <div className="bg-light rounded-lg img-wrapper">
+                <img src={img1} alt="Image1" id="home-img" className="img-fluid" />
+                <div className="img-content">
+                    <h2 className="animate__animated animate__backInLeft"><strong>The Online Library</strong></h2>
+                    <p className="animate__animated animate__backInRight">Opening the door to knowledge.</p>
+                </div>
+            </div>
+
+
 
             <Container>
-                <Row>
-                    <Col>
+                <Row className="mt-2">
+                    <Col md={4}>
                         <h4 className="text-primary">Discussion Rooms</h4>
                         <hr />
                         <p>Library has introduced Discussion Rooms. Students need to study in groups can use these discussions rooms.</p>
                     </Col>
 
-                    <Col>
+                    <Col md={4}>
                         <h4 className="text-primary">Study carrels</h4>
                         <hr />
                         <p>Library has added study carrels in its infrastructure for personalized studies purpose. The carrels are located at Library. These carrels are partitioned by glass fitting and charging point is also provided for the laptops.</p>
                     </Col>
 
-                    <Col>
+                    <Col md={4}>
                         <h4 className="text-primary">Purchase of New books</h4>
                         <hr />
                         <p>Library has recently procured 547 books(Aug.2019) for students and faculty members.</p>
