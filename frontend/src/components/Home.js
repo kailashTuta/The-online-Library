@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import Footer from './Footer';
 import img1 from '../assets/img1.jpg'
 
 
@@ -18,26 +19,28 @@ const Home = () => {
 
 
             <Container>
-                <Row className="mt-2">
+                <Row className="mt-3">
                     <Col md={4}>
-                        <h4 className="text-primary">Discussion Rooms</h4>
+                        <h4 className="text-primary text-center">Discussion Rooms</h4>
                         <hr />
                         <p>Library has introduced Discussion Rooms. Students need to study in groups can use these discussions rooms.</p>
                     </Col>
 
                     <Col md={4}>
-                        <h4 className="text-primary">Study carrels</h4>
+                        <h4 className="text-primary text-center">Study carrels</h4>
                         <hr />
                         <p>Library has added study carrels in its infrastructure for personalized studies purpose. The carrels are located at Library. These carrels are partitioned by glass fitting and charging point is also provided for the laptops.</p>
                     </Col>
 
                     <Col md={4}>
-                        <h4 className="text-primary">Purchase of New books</h4>
+                        <h4 className="text-primary text-center">Purchase of New books</h4>
                         <hr />
                         <p>Library has recently procured 547 books(Aug.2019) for students and faculty members.</p>
                     </Col>
                 </Row>
             </Container>
+
+            <Footer />
         </div>
     )
 }
