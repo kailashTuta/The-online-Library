@@ -8,9 +8,7 @@ function App() {
   return (
     <div className="App">
       <NavabarComp />
-      <div className="content">
-        <Home />
-      </div>
+      <Home />
       <Footer />
     </div>
   );

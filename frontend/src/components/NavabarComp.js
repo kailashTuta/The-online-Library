@@ -1,6 +1,6 @@
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import React from 'react'
-import logo from '../assets/logo.jpg'
+
 
 const NavabarComp = () => {
     return (
