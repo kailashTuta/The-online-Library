@@ -11,7 +11,9 @@ app.use(cors());
 
 // Import Routes
 const bookRoutes = require('./routes/books')
+const serviceRoutes = require('./routes/services')
 app.use('/books', bookRoutes)
+app.use('/services', serviceRoutes)
 
 // ROUTES
 app.get('/', (req, res) => {
