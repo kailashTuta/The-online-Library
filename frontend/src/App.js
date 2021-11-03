@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Services from './components/Services'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import Library from './components/Library'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -28,6 +29,10 @@ function App() {
 
           <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/library">
+            <Library />
           </Route>
 
         </Switch>
