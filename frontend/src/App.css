@@ -296,3 +296,75 @@ input[type='number'] {
   color: #666;
   text-decoration: none;
 }
+
+/* Login */
+.container-signin {
+  width: 100%;
+  display: flex;
+}
+
+.signin-more {
+  width: calc(100% - 520px) !important;
+  position: relative;
+  background-image: url(./assets/bg2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wrap-signin {
+  width: 520px;
+  min-height: 100vh;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+  padding: 72px 50px 0px 50px;
+}
+
+.signin-form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.signin-form-title {
+  display: block;
+  width: 100%;
+  font-size: 39px;
+  font-weight: 900;
+  color: #333333;
+  line-height: 1.2;
+  text-align: left;
+  padding-bottom: 59px;
+}
+
+.container-signin-form-btn {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap-signin-form-btn {
+  display: block;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.signin-form-btn {
+  width: 245px;
+  height: 50px;
+  padding: 10px 30px;
+  background: #0d6efd;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.signup-button {
+  font-size: 19px;
+  color: #666;
+  text-decoration: none;
+}
