@@ -6,7 +6,7 @@ import { Nav, Navbar, Container } from 'react-bootstrap'
 const NavabarComp = () => {
     return (
         <div>
-            <Navbar bg="dark" variant="dark" fixed="top" expand="lg">
+            <Navbar bg="dark" variant="dark" expand="lg">
 
                 <Container>
                     <Navbar.Brand>
@@ -22,8 +22,8 @@ const NavabarComp = () => {
                         </Nav>
 
                         <Nav>
-                            <Nav.Link as={Link} to="#"><i className="fas fa-sign-in-alt"></i> Login</Nav.Link>
-                            <Nav.Link as={Link} to="#"><i className="fas fa-user-plus"></i> Signup</Nav.Link>
+                            <Nav.Link as={Link} to="/login"><i className="fas fa-sign-in-alt"></i> Login</Nav.Link>
+                            <Nav.Link as={Link} to="/signup"><i className="fas fa-user-plus"></i> Signup</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

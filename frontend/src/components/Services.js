@@ -10,7 +10,7 @@ const Services = () => {
 
     return (
         <div>
-            <h1 className="mt-5 display-3 text-center font-weight-bold">Services</h1>
+            <h1 className="display-3 text-center font-weight-bold">Services</h1>
             <div className="services">
                 {error && <p>{error}</p>}
                 {isPending && <Spinner animation="grow" />}

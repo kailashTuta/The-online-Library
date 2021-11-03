@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <div>
-            <footer className="mt-5">
+            <footer className="mt-3">
                 <div className="footer-content">
                     <ul className="socials">
                         <li><a href="$"><i className="fab fa-facebook"></i></a></li>
