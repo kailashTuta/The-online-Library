@@ -3,6 +3,7 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
+const authenticate = require('../middleware/authenticate')
 
 router.post('/register', async (req, res) => {
     const { name, email, phone, role, password, cpassword } = req.body
@@ -63,6 +64,10 @@ router.post('/signin', async (req, res) => {
     catch (err) {
         console.log(err);
     }
+})
+
+router.get('/library', authenticate, (req, res) => {
+    res.send(req.rootUser)
 })
 
 module.exports = router

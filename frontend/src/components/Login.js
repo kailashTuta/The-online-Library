@@ -13,7 +13,8 @@ const Login = () => {
             body: JSON.stringify({
                 email: email,
                 password: password
-            })
+            }),
+            credentials: 'include'
         });
         const data = res.json();
         if (res.status === 400 || !data) {

@@ -18,7 +18,7 @@ const NavabarComp = () => {
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to="/"><i className="fas fa-home"></i> Home</Nav.Link>
                             <Nav.Link as={Link} to="/services"><i className="fas fa-users-cog"></i> Services</Nav.Link>
-                            <Nav.Link as={Link} to="#"><i className="fas fa-book-reader"></i> Library</Nav.Link>
+                            <Nav.Link as={Link} to="/library"><i className="fas fa-book-reader"></i> Library</Nav.Link>
                         </Nav>
 
                         <Nav>
