@@ -70,4 +70,9 @@ router.get('/library', authenticate, (req, res) => {
     res.send(req.rootUser)
 })
 
+router.get('/logout', (req, res) => {
+    res.clearCookie('jwtoken', { path: '/' })
+    res.status(200).send('User Logged out')
+})
+
 module.exports = router
