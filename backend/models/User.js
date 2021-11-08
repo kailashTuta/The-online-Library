@@ -6,10 +6,13 @@ const UserSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
+        min: 6,
+        max: 255
     },
     email: {
         type: String,
         required: true,
+
     },
     phone: {
         type: Number,
@@ -23,10 +26,18 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
+        min: 6,
+        max: 1024
     },
     cpassword: {
         type: String,
         required: true,
+        min: 6,
+        max: 1024
+    },
+    date: {
+        type: Date,
+        default: Date.now
     },
     tokens: [
         {

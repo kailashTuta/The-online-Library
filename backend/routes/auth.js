@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 const authenticate = require('../middleware/authenticate')
+const { registerValidation } = require('../validation/validation')
 
 router.post('/register', async (req, res) => {
     const { name, email, phone, role, password, cpassword } = req.body
@@ -11,6 +12,9 @@ router.post('/register', async (req, res) => {
     if (!name || !email || !phone || !role || !password || !cpassword) {
         return res.status(422).json({ error: "Please Enter All Details" })
     }
+    // Validation
+    const { error } = registerValidation(req.body)
+    if (error) return res.status(422).send(error.details[0].message)
 
     try {
         const userExist = await User.findOne({ email: email })
