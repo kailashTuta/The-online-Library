@@ -19,11 +19,15 @@ const bookRoutes = require('./routes/books')
 const serviceRoutes = require('./routes/services')
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const libraryRoutes = require('./routes/library')
+const adminRoutes = require('./routes/admin')
 
 app.use('/books', bookRoutes)
 app.use('/services', serviceRoutes)
 app.use('/users', userRoutes)
 app.use(authRoutes)
+app.use(libraryRoutes)
+app.use('/admin', adminRoutes)
 
 // ROUTES
 app.get('/', (req, res) => {

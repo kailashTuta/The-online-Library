@@ -6,6 +6,8 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Library from './components/Library'
+import AdminDashboard from './components/AdminDashboard'
+import UserDashboard from './components/UserDashboard';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createContext, useReducer } from 'react';
 import { initialState, reducer } from './reducer/UseReducer';
@@ -37,6 +39,14 @@ const Routing = () => {
 
     <Route path="/logout">
       <Logout />
+    </Route>
+
+    <Route path="/admin-dashboard">
+      <AdminDashboard />
+    </Route>
+
+    <Route path="/user-dashboard">
+      <UserDashboard />
     </Route>
 
   </Switch>)

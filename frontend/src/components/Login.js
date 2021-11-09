@@ -25,9 +25,9 @@ const Login = () => {
             window.alert('Invalid Credentials')
         }
         else {
-            dispatch({ type: "USER", payload: true })
+            dispatch({ type: "USER", payload: true });
+            history.push('/admin-dashboard')
             window.alert('Login Successful')
-            history.push('/library')
         }
     }
     return (
@@ -35,7 +35,7 @@ const Login = () => {
             <div className="container-signin">
                 <div className="signin-more"></div>
                 <div className="wrap-signin">
-                    <form action="" className="signin-form">
+                    <form className="signin-form">
                         <span className="signin-form-title">Log in</span>
 
                         <div className="wrap-input">

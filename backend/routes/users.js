@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router()
 const User = require('../models/User')
+const authenticate = require('../middleware/authenticate')
+
+router.get('/dashboard', authenticate, (req, res) => {
+    res.send(req.rootUser)
+})
 
 router.get('/', async (req, res) => {
     try {
