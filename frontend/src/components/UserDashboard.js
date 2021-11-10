@@ -39,7 +39,8 @@ const UserDashboard = () => {
     }
     useEffect(() => {
         callUserDashboard();
-    })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <div>
             <h1>User Dashboard</h1>

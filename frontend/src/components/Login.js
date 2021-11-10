@@ -1,11 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
-import { UserContext } from '../App';
+
 
 
 const Login = () => {
-    const { state, dispatch } = useContext(UserContext);
-    console.log(state);
     const history = useHistory()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -25,7 +23,6 @@ const Login = () => {
             window.alert('Invalid Credentials')
         }
         else {
-            dispatch({ type: "USER", payload: true });
             history.push('/admin-dashboard')
             window.alert('Login Successful')
         }

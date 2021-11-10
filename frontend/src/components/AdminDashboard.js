@@ -39,7 +39,8 @@ const AdminDashboard = () => {
     }
     useEffect(() => {
         callAdminDashboard();
-    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <div>
             <h1>AdminDashboard</h1>

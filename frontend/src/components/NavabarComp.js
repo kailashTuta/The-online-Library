@@ -1,29 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from 'react-bootstrap'
-import { UserContext } from '../App'
+
 
 
 const NavabarComp = () => {
-    const { state, dispatch } = useContext(UserContext)
-    console.log(dispatch);
-    const RenderMenu = () => {
-        if (state) {
-            return (
-                <>
-                    <Nav.Link as={Link} to="/logout">Logout <i className="fas fa-sign-in-alt"></i></Nav.Link>
-                </>
-            )
-        }
-        else {
-            return (
-                <>
-                    <Nav.Link as={Link} to="/login"><i className="fas fa-sign-in-alt"></i> Login</Nav.Link>
-                    <Nav.Link as={Link} to="/signup"><i className="fas fa-user-plus"></i> Signup</Nav.Link>
-                </>
-            )
-        }
-    }
     return (
         <div>
             <Navbar bg="dark" variant="dark" expand="lg">
@@ -42,7 +23,9 @@ const NavabarComp = () => {
                         </Nav>
 
                         <Nav>
-                            <RenderMenu />
+                            <Nav.Link as={Link} to="/login"><i className="fas fa-sign-in-alt"></i> Login</Nav.Link>
+                            <Nav.Link as={Link} to="/signup"><i className="fas fa-user-plus"></i> Signup</Nav.Link>
+                            <Nav.Link as={Link} to="/logout">Logout <i className="fas fa-sign-in-alt"></i></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
