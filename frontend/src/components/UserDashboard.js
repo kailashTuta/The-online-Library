@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import NavabarComp from './NavabarComp'
 
 const UserDashboard = () => {
     const history = useHistory();
@@ -42,6 +43,7 @@ const UserDashboard = () => {
     }, [])
     return (
         <div>
+            <NavabarComp />
             <h1>User Dashboard</h1>
         </div>
     )

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import NavabarComp from './NavabarComp'
 
 const Signup = () => {
     const [user, setUser] = useState({
@@ -47,6 +48,7 @@ const Signup = () => {
 
     return (
         <div>
+            <NavabarComp />
             <div className="container-signup">
                 <div className="signup-more"></div>
                 <div className="wrap-signup">

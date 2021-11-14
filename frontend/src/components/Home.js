@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import NavabarComp from './NavabarComp'
 import Footer from './Footer';
 import img1 from '../assets/img1.jpg'
 
@@ -7,6 +8,7 @@ import img1 from '../assets/img1.jpg'
 const Home = () => {
     return (
         <div>
+            <NavabarComp />
 
             <div className="bg-light rounded-lg img-wrapper">
                 <img src={img1} alt="Image1" id="home-img" className="img-fluid" />

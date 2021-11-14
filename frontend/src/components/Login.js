@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
+import NavabarComp from './NavabarComp'
 
 const Login = () => {
     const history = useHistory()
@@ -16,7 +17,8 @@ const Login = () => {
             }),
             credentials: 'include'
         });
-        const data = res.json();
+        const data = await res.json();
+        localStorage.setItem("user-info", JSON.stringify(data))
         if (res.status === 400 || !data) {
             window.alert('Invalid Credentials')
         }
@@ -27,6 +29,7 @@ const Login = () => {
     }
     return (
         <div>
+            <NavabarComp />
             <div className="container-signin">
                 <div className="signin-more"></div>
                 <div className="wrap-signin">

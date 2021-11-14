@@ -1,5 +1,4 @@
 import './App.css';
-import NavabarComp from './components/NavabarComp'
 import Home from './components/Home'
 import Services from './components/Services'
 import Signup from './components/Signup'
@@ -15,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavabarComp />
+        
         <Switch>
 
           <Route exact path="/">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import NavabarComp from './NavabarComp'
 
 
 const AdminDashboard = () => {
@@ -39,10 +40,11 @@ const AdminDashboard = () => {
     }
     useEffect(() => {
         callAdminDashboard();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <div>
+            <NavabarComp />
             <h1>AdminDashboard</h1>
         </div>
     )

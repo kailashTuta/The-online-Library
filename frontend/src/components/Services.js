@@ -3,6 +3,7 @@ import useFetch from '../hooks/useFetch'
 import ServiceList from './ServiceList'
 import Footer from './Footer';
 import { Spinner } from 'react-bootstrap'
+import NavabarComp from './NavabarComp'
 
 const Services = () => {
 
@@ -10,6 +11,7 @@ const Services = () => {
 
     return (
         <div>
+            <NavabarComp />
             <h1 className="display-3 text-center font-weight-bold">Services</h1>
             <div className="services">
                 {error && <p>{error}</p>}

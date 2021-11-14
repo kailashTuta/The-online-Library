@@ -44,7 +44,7 @@ router.post('/signin', async (req, res) => {
         const userLogin = await User.findOne({ email: email })
         if (userLogin) {
             const isMatch = await bcrypt.compare(password, userLogin.password)
-            
+
             // JWT Auth
             token = await userLogin.generateAuthToken();
             console.log(token)
@@ -58,7 +58,7 @@ router.post('/signin', async (req, res) => {
                 res.status(400).json({ message: "Invalid Credentials" })
             }
             else {
-                res.json({ message: "User Logged in Successfully" })
+                res.json({ message: "User Logged in Successfully", email: email })
             }
         } else {
             res.status(400).json({ message: "Invalid Credentials" })

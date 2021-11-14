@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import NavabarComp from './NavabarComp'
 
 const Library = () => {
     const history = useHistory();
@@ -32,6 +33,7 @@ const Library = () => {
     })
     return (
         <div>
+            <NavabarComp />
             <h1 className="text-center">Library</h1>
         </div>
     )
