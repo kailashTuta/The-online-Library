@@ -1,11 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Container, Row, Col, ListGroup } from 'react-bootstrap'
 import NavabarComp from './NavabarComp'
+import Profile from './Profile'
 
 const UserDashboard = () => {
     const history = useHistory();
-    const [userData, setUserData] = useState();
+    const [userData, setUserData] = useState([]);
     const callUserDashboard = async () => {
         try {
             const res = await fetch('http://localhost:5000/users/dashboard', {
@@ -44,7 +46,20 @@ const UserDashboard = () => {
     return (
         <div>
             <NavabarComp />
-            <h1>User Dashboard</h1>
+            <Container className="mt-4">
+                <Row>
+                    <Col md={2}>
+                        <ListGroup className="mt-4">
+                            <ListGroup.Item variant="info" active>Account</ListGroup.Item>
+                            <ListGroup.Item variant="info">Issued Books</ListGroup.Item>
+                        </ListGroup>
+                    </Col>
+                    <Col md={10}>
+                        <Profile user={userData} />
+                    </Col>
+                </Row>
+            </Container>
+
         </div>
     )
 }
