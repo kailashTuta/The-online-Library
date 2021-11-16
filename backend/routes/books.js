@@ -7,7 +7,7 @@ const Book = require('../models/Book')
 router.get('/', async (req, res) => {
     try {
         const books = await Book.find();
-        res.json(books);
+        res.status(200).json(books);
     }
     catch (err) {
         res.json({ message: err })
