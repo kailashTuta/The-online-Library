@@ -9,7 +9,7 @@ const PaginationComp = ({ booksPerPage, totalBooks, paginate }) => {
     }
     return (
         <div>
-            <Pagination className="flex-wrap">
+            <Pagination className="flex-wrap justify-content-center mt-2">
                 {pageNumbers.map(number => (
                     <Pagination.Item onClick={() => paginate(number)} key={number} >
                         {number}
