@@ -1,10 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 import Books from './Books'
 import PaginationComp from './PaginationComp'
 import NavabarComp from './NavabarComp'
-import { Container } from 'react-bootstrap'
+import Footer from './Footer';
 
 const Library = () => {
     const history = useHistory();
@@ -13,6 +14,7 @@ const Library = () => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [booksPerPage] = useState(20);
+    const [userData, setUserData] = useState([])
 
     const callLibrary = async () => {
         try {
@@ -25,7 +27,8 @@ const Library = () => {
                 credentials: "include"
             })
             const data = await res.json();
-            console.log(data);
+            setUserData(data);
+
             if (!res.status === 200) {
                 const error = new Error(res.error)
                 throw error
@@ -79,6 +82,7 @@ const Library = () => {
                 <Books books={currentBooks} loading={loading} />
                 <PaginationComp booksPerPage={booksPerPage} totalBooks={books.length} paginate={paginate} />
             </Container>
+            <Footer />
         </div>
     )
 }

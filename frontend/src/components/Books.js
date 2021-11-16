@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Badge, Row, Col } from 'react-bootstrap'
+import { Card, Badge, Row, Col, Button } from 'react-bootstrap'
 
 const Books = ({ books, loading }) => {
     if (loading) {
@@ -15,18 +15,24 @@ const Books = ({ books, loading }) => {
                                 <Card.Img variant="top" src={book.thumbnailUrl} />
                                 <Card.Body>
                                     <Card.Title>{book.title}</Card.Title>
-                                    {book.categories.map(category => (
-                                        <Badge pill bg="dark" className="m-1">
+                                    {book.categories.map((category, i) => (
+                                        <Badge pill bg="info" className="m-1" key={i} >
                                             {category}
                                         </Badge>
                                     ))}
+                                    {book.authors.map((author, i) => (
+                                        <Card.Text className="lead" key={i}>
+                                            {author}
+                                        </Card.Text>
+                                    ))}
                                 </Card.Body>
+                                <Button variant="warning">View More</Button>
                             </Card>
                         </Col>
                     ))}
                 </Row>
             </div>
-        </div>
+        </div >
     )
 }
 
