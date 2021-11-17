@@ -79,7 +79,7 @@ const Library = () => {
         <div>
             <NavabarComp />
             <Container>
-                <Books books={currentBooks} loading={loading} />
+                <Books books={currentBooks} loading={loading} user={userData} />
                 <PaginationComp booksPerPage={booksPerPage} totalBooks={books.length} paginate={paginate} />
             </Container>
             <Footer />

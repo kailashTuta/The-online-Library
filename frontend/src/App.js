@@ -7,6 +7,7 @@ import Logout from './components/Logout'
 import Library from './components/Library'
 import AdminDashboard from './components/AdminDashboard'
 import UserDashboard from './components/UserDashboard';
+import BookDetails from './components/BookDetails'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -14,7 +15,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        
+
         <Switch>
 
           <Route exact path="/">
@@ -47,6 +48,10 @@ function App() {
 
           <Route path="/user-dashboard">
             <UserDashboard />
+          </Route>
+
+          <Route path="/books/:id">
+            <BookDetails />
           </Route>
 
         </Switch>

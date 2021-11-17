@@ -1,7 +1,8 @@
 import React from 'react'
-import { Card, Badge, Row, Col, Button } from 'react-bootstrap'
+import { Link } from "react-router-dom";
+import { Card, Badge, Row, Col } from 'react-bootstrap'
 
-const Books = ({ books, loading }) => {
+const Books = ({ books, loading, user }) => {
     if (loading) {
         return <h2>loading...</h2>
     }
@@ -26,13 +27,13 @@ const Books = ({ books, loading }) => {
                                         </Card.Text>
                                     ))}
                                 </Card.Body>
-                                <Button variant="warning">View More</Button>
+                                <Link to={`/books/${book._id}`} className="btn btn-warning">View More</Link>
                             </Card>
                         </Col>
                     ))}
                 </Row>
             </div>
-        </div >
+        </div>
     )
 }
 
