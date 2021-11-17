@@ -7,9 +7,7 @@ import NavabarComp from './NavabarComp'
 const BookDetails = () => {
     const { id } = useParams();
     const { data: book, error, isPending } = useFetch('http://localhost:5000/books/' + id);
-    const date = new Date(book.publishedDate)
-    const newDate = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear()
-
+    
     return (
         <div>
             <NavabarComp />
@@ -42,16 +40,6 @@ const BookDetails = () => {
                                             </Col>
                                             <Col md={9} className="text-secondary text-justify">
                                                 {book.longDescription || book.shortDescription}
-                                            </Col>
-                                        </Row>
-                                        <hr />
-
-                                        <Row>
-                                            <Col md={3}>
-                                                <h4>Published Date</h4>
-                                            </Col>
-                                            <Col md={9} className="text-secondary">
-                                                {newDate}
                                             </Col>
                                         </Row>
                                         <hr />
