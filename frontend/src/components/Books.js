@@ -1,10 +1,46 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import { Card, Badge, Row, Col } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Link, useHistory } from "react-router-dom";
+import { Button, Card, Badge, Row, Col } from 'react-bootstrap'
 
 const Books = ({ books, loading, user }) => {
+    const [title, setTitle] = useState('')
+    const [userId, setUserId] = useState('')
+    const[bookId,setBookId] = useState('')
+    const[userName,setUserName] = useState('')
+    console.log(title)
+    console.log(user.name)
+
+    const history = useHistory()
     if (loading) {
         return <h2>loading...</h2>
+    }
+    const issueBook = async (e) => {
+        e.preventDefault();
+        const res = await fetch("http://localhost:5000/issueBook", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                "title": title,
+                "userId": userId,
+                "bookId":bookId,
+                "userName": userName,
+                "issueDate": Date.now(),
+                "returnDate": Date.now()+5
+            })
+        })
+        const data = await res.json()
+        console.log(data)
+        if (res.status === 422 || !data) {
+            window.alert("Book Already Exists")
+        }
+        else {
+            window.alert("Book Issued")
+            history.push("/library")
+        }
     }
     return (
         <div>
@@ -27,7 +63,32 @@ const Books = ({ books, loading, user }) => {
                                         </Card.Text>
                                     ))}
                                 </Card.Body>
-                                <Link to={`/books/${book._id}`} className="btn btn-warning">View More</Link>
+                                <div className="d-grid gap-2">
+                                    <Button as={Link} to={`/books/${book._id}`} variant="outline-warning">View More</Button>
+                                </div>
+                                <form onSubmit={issueBook}>
+                                    <input type="hidden" name="title" value={book.title}/>
+                                    <input type="hidden" name="userId" value={user._id}/>
+                                    <input type="hidden" name="bookId" value={book._id}/>
+                                    <input type="hidden" name="userName" value={book._id}/>
+                                    <div className="d-grid gap-2">
+                                        <Button
+                                         variant="success"
+                                         type="submit"
+                                         className="mt-1"
+                                         onClick={()=>
+                                         {
+                                            setTitle(book.title)
+                                            setUserId(String(user._id))
+                                            setBookId(String(book._id))
+                                            setUserName(user.name)
+                                         }    
+                                         }
+                                        >
+                                        Get this Book
+                                        </Button>
+                                    </div>
+                                </form>
                             </Card>
                         </Col>
                     ))}

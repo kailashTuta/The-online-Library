@@ -7,7 +7,7 @@ import NavabarComp from './NavabarComp'
 const BookDetails = () => {
     const { id } = useParams();
     const { data: book, error, isPending } = useFetch('http://localhost:5000/books/' + id);
-    
+
     return (
         <div>
             <NavabarComp />
@@ -20,7 +20,7 @@ const BookDetails = () => {
                             <h1 className="text-center text-info text-capitalize">About The Book</h1>
                             <Card>
                                 <Row>
-                                    <Col md={2}>
+                                    <Col md={3}>
                                         <Card.Img variant="top" src={book.thumbnailUrl} />
                                     </Col>
                                     <Col md={9}>
