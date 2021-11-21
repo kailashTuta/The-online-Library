@@ -7,6 +7,7 @@ import Logout from './components/Logout'
 import Library from './components/Library'
 import AdminDashboard from './components/AdminDashboard'
 import UserDashboard from './components/UserDashboard';
+import IssuedBooks from './components/IssuedBooks'
 import BookDetails from './components/BookDetails'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -48,6 +49,10 @@ function App() {
 
           <Route path="/user-dashboard">
             <UserDashboard />
+          </Route>
+
+          <Route path="/issued-books">
+            <IssuedBooks/>
           </Route>
 
           <Route path="/books/:id">

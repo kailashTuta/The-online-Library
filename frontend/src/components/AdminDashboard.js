@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { Container, Row, Col, ListGroup } from 'react-bootstrap'
 import NavabarComp from './NavabarComp'
 import Profile from './Profile'
@@ -51,10 +51,10 @@ const AdminDashboard = () => {
                 <Row>
                     <Col md={2}>
                         <ListGroup className="mt-4">
-                            <ListGroup.Item variant="info" active>Account</ListGroup.Item>
+                            <ListGroup.Item as = {Link} to='/admin-dashboard' variant="info" active>Account</ListGroup.Item>
                             <ListGroup.Item variant="info">Users</ListGroup.Item>
                             <ListGroup.Item variant="info">Books</ListGroup.Item>
-                            <ListGroup.Item variant="info">Issued Books</ListGroup.Item>
+                            <ListGroup.Item as = {Link} to='/issued-books' variant="info">Issued Books</ListGroup.Item>
                         </ListGroup>
                     </Col>
                     <Col md={10}>
