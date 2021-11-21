@@ -29,7 +29,7 @@ const Books = ({ books, loading, user }) => {
                 "bookId":bookId,
                 "userName": userName,
                 "issueDate": Date.now(),
-                "returnDate": Date.now()+5
+                "returnDate": Date.now()
             })
         })
         const data = await res.json()

@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import moment from 'moment'
 import { Container, Row, Col, ListGroup, Table } from "react-bootstrap";
 import NavabarComp from "./NavabarComp";
 
 const IssuedBooks = () => {
-  const history = useHistory();
   const [issuedBooks, setIssuedBooks] = useState([]);
 
   const getIssuedBooks = async()=>{
@@ -66,7 +66,6 @@ const IssuedBooks = () => {
               <th>userID</th>
               <th>Issued Date</th>
               <th>Return Date</th>
-              <th>Return</th>
             </tr>
             </thead>
             <tbody>
@@ -78,8 +77,8 @@ const IssuedBooks = () => {
                     <td>{issuedbook.bookId}</td>
                     <td>{issuedbook.userName}</td>
                     <td>{issuedbook.userId}</td>
-                    <td>{issuedbook.issueDate}</td>
-                    <td>{issuedbook.returnDate}</td>
+                    <td>{moment(issuedbook.issueDate).format('DD-MM-YYYY')}</td>
+                    <td>{moment(issuedbook.returnDate).add(7,'days').format('DD-MM-YYYY')}</td>
                   </tr>
                 ))
               }
