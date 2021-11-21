@@ -26,4 +26,14 @@ router.get('/adminBooks', authenticate, async (req, res) => {
         res.json({ message: err })
     }
 })
+
+router.delete('/adminBooks/:bookId', async (req, res) => {
+    try {
+        const removedBook = await IssuedBook.deleteOne({ _id: req.params.bookId })
+        res.json(removedBook)
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
 module.exports = router

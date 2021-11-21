@@ -78,7 +78,7 @@ const IssuedBooks = () => {
             <tbody>
               {
                 issuedBooks.map((issuedbook, i) =>(
-                  <tr>
+                  <tr key={i}>
                     <td>{i+1}</td>
                     <td>{issuedbook.title}</td>
                     <td>{issuedbook.bookId}</td>

@@ -17,6 +17,17 @@ router.get('/userBooks', authenticate, async(req, res) => {
         res.json({ message: err })
     }
 })
+
+router.delete('/userBooks/:bookId', async (req, res) => {
+    try {
+        const removedBook = await IssuedBook.deleteOne({ _id: req.params.bookId })
+        res.json(removedBook)
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
+
 router.get('/', async (req, res) => {
     try {
         const users = await User.find();

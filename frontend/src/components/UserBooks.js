@@ -1,12 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom";
 import { Button, Table, Container, Row, Col, ListGroup } from 'react-bootstrap'
 import moment from 'moment'
 import NavabarComp from './NavabarComp'
 
 const UserBooks = () => {
     const [books, setBooks] = useState([]);
+    const history = useHistory()
 
   const getIssuedBooks = async()=>{
     try{
@@ -29,6 +30,15 @@ const UserBooks = () => {
     catch(err){
       console.log(err);
     }
+  }
+
+  const deleteIssueBook = (id) => {
+    fetch('http://localhost:5000/users/userBooks/'+id,{
+      method: 'DELETE',
+    }).then(() => {
+      history.push('/user-dashboard')
+    })
+
   }
 
   useEffect(() => {
@@ -63,7 +73,7 @@ const UserBooks = () => {
             <tbody>
               {
                 books.map((book, i) =>(
-                <tr>
+                <tr key={i}>
                     <td>{i+1}</td>
                     <td>{book.title}</td>
                     <td>{book.bookId}</td>
@@ -71,7 +81,12 @@ const UserBooks = () => {
                     <td>{book.userId}</td>
                     <td>{moment(book.issueDate).format('DD-MM-YYYY')}</td>
                     <td>{moment(book.returnDate).add(7,'days').format('DD-MM-YYYY')}</td>
-                    <td><Button variant="danger"><i class="fas fa-undo-alt"></i></Button></td>
+                    <td><Button variant="danger" 
+                    onClick={()=>{
+                      deleteIssueBook(book._id);
+                      }
+                    }
+                    ><i className="fas fa-undo-alt"></i></Button></td>
                 </tr>
                 ))
               }
