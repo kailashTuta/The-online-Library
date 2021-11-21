@@ -52,7 +52,7 @@ const UserBooks = () => {
                 <Row>
                     <Col md={2}>
                         <ListGroup className="mt-4">
-                            <ListGroup.Item as = {Link} to='/admin-dashboard' variant="info">Account</ListGroup.Item>
+                            <ListGroup.Item as = {Link} to='/user-dashboard' variant="info">Account</ListGroup.Item>
                             <ListGroup.Item as = {Link} to='/user-books' variant="info" active>My Books</ListGroup.Item>
                         </ListGroup>
                     </Col>
