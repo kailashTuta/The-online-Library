@@ -1,16 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Button, Table, Container, Row, Col, ListGroup } from "react-bootstrap";
 import moment from 'moment'
-import { Container, Row, Col, ListGroup, Table } from "react-bootstrap";
 import NavabarComp from "./NavabarComp";
 
-const IssuedBooks = () => {
-  const [issuedBooks, setIssuedBooks] = useState([]);
+const AdminBooks = () => {
+
+  const [books, setBooks] = useState([]);
 
   const getIssuedBooks = async()=>{
     try{
-      const res = await fetch('http://localhost:5000/admin/issuedBooks', {
+      const res = await fetch('http://localhost:5000/admin/adminBooks', {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -19,7 +20,7 @@ const IssuedBooks = () => {
                 credentials: "include"
       })
       const data = await res.json()
-      setIssuedBooks(data);
+      setBooks(data);
       if(!res.status === 200)
       {
         const error = new Error(res.error)
@@ -30,13 +31,16 @@ const IssuedBooks = () => {
       console.log(err);
     }
   }
+
   useEffect(() => {
     getIssuedBooks();
-  },[])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
       <NavabarComp />
-      <Container>
+      <Container className="mt-4">
         <Row>
           <Col md={2}>
             <ListGroup className="mt-4">
@@ -45,18 +49,14 @@ const IssuedBooks = () => {
               </ListGroup.Item>
               <ListGroup.Item variant="info">Users</ListGroup.Item>
               <ListGroup.Item variant="info">Books</ListGroup.Item>
-              <ListGroup.Item
-                as={Link}
-                to="/issued-books"
-                variant="info"
-                active
-              >
+              <ListGroup.Item as={Link} to="/issued-books" variant="info">
                 Issued Books
               </ListGroup.Item>
               <ListGroup.Item
                 as={Link}
                 to="/admin-books"
                 variant="info"
+                active
               >
                 My Books
               </ListGroup.Item>
@@ -73,20 +73,22 @@ const IssuedBooks = () => {
               <th>userID</th>
               <th>Issued Date</th>
               <th>Return Date</th>
+              <th>Return</th>
             </tr>
             </thead>
             <tbody>
               {
-                issuedBooks.map((issuedbook, i) =>(
-                  <tr>
+                books.map((book, i) =>(
+                <tr>
                     <td>{i+1}</td>
-                    <td>{issuedbook.title}</td>
-                    <td>{issuedbook.bookId}</td>
-                    <td>{issuedbook.userName}</td>
-                    <td>{issuedbook.userId}</td>
-                    <td>{moment(issuedbook.issueDate).format('DD-MM-YYYY')}</td>
-                    <td>{moment(issuedbook.returnDate).add(7,'days').format('DD-MM-YYYY')}</td>
-                  </tr>
+                    <td>{book.title}</td>
+                    <td>{book.bookId}</td>
+                    <td>{book.userName}</td>
+                    <td>{book.userId}</td>
+                    <td>{moment(book.issueDate).format('DD-MM-YYYY')}</td>
+                    <td>{moment(book.returnDate).add(7,'days').format('DD-MM-YYYY')}</td>
+                    <td><Button variant="danger"><i class="fas fa-undo-alt"></i></Button></td>
+                </tr>
                 ))
               }
             </tbody>
@@ -98,4 +100,4 @@ const IssuedBooks = () => {
   );
 };
 
-export default IssuedBooks;
+export default AdminBooks;

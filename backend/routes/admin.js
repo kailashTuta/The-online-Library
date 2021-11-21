@@ -16,4 +16,14 @@ router.get('/issuedBooks', authenticate, async (req, res) => {
         res.json({ message: err })
     }
 })
+
+router.get('/adminBooks', authenticate, async (req, res) => {
+    try {
+        const books = await IssuedBook.find({userId:req.rootUser._id});
+        res.status(200).json(books);
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
 module.exports = router

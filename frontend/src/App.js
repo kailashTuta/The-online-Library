@@ -9,6 +9,8 @@ import AdminDashboard from './components/AdminDashboard'
 import UserDashboard from './components/UserDashboard';
 import IssuedBooks from './components/IssuedBooks'
 import BookDetails from './components/BookDetails'
+import UserBooks from './components/UserBooks'
+import AdminBooks from './components/AdminBooks'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -53,6 +55,14 @@ function App() {
 
           <Route path="/issued-books">
             <IssuedBooks/>
+          </Route>
+
+          <Route path="/user-books">
+            <UserBooks/>
+          </Route>
+
+          <Route path="/admin-books">
+            <AdminBooks/>
           </Route>
 
           <Route path="/books/:id">

@@ -1,12 +1,22 @@
 const express = require('express');
 const router = express.Router()
 const User = require('../models/User')
+const IssuedBook = require('../models/IssuedBook')
 const authenticate = require('../middleware/authenticate')
 
 router.get('/dashboard', authenticate, (req, res) => {
     res.send(req.rootUser)
 })
 
+router.get('/userBooks', authenticate, async(req, res) => {
+    try {
+        const books = await IssuedBook.find({userId:req.rootUser._id});
+        res.status(200).json(books);
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
 router.get('/', async (req, res) => {
     try {
         const users = await User.find();

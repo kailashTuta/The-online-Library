@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { Container, Row, Col, ListGroup } from 'react-bootstrap'
 import NavabarComp from './NavabarComp'
 import Profile from './Profile'
@@ -51,7 +51,7 @@ const UserDashboard = () => {
                     <Col md={2}>
                         <ListGroup className="mt-4">
                             <ListGroup.Item variant="info" active>Account</ListGroup.Item>
-                            <ListGroup.Item variant="info">Issued Books</ListGroup.Item>
+                            <ListGroup.Item as = {Link} to='/user-books' variant="info">My Books</ListGroup.Item>
                         </ListGroup>
                     </Col>
                     <Col md={10}>
