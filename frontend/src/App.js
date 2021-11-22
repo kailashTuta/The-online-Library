@@ -15,6 +15,7 @@ import BookSection from "./components/BookSection";
 import UserSection from "./components/UserSection";
 import AddBook from "./components/AddBook";
 import EditUser from "./components/EditUser";
+import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -84,6 +85,10 @@ function App() {
 
           <Route path="/add-books">
             <AddBook />
+          </Route>
+
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </div>
