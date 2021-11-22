@@ -148,6 +148,7 @@ const AddBook = () => {
                     name="status"
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
+                    required
                   >
                     <option></option>
                     <option value="PUBLISH">PUBLISH</option>

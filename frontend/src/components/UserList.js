@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 const UserList = ({ users }) => {
   return (
     <div>
@@ -22,7 +24,15 @@ const UserList = ({ users }) => {
               <td>{user.email}</td>
               <td>{user.phone}</td>
               <td>{user.role}</td>
-              <td><Button variant="primary"><i className="fas fa-edit"></i></Button></td>
+              <td>
+                <Button
+                  as={Link}
+                  to={`/edit-user/${user._id}`}
+                  variant="primary"
+                >
+                  <i className="fas fa-edit"></i>
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

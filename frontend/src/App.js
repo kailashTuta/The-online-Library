@@ -1,29 +1,27 @@
-import './App.css';
-import Home from './components/Home'
-import Services from './components/Services'
-import Signup from './components/Signup'
-import Login from './components/Login'
-import Logout from './components/Logout'
-import Library from './components/Library'
-import AdminDashboard from './components/AdminDashboard'
-import UserDashboard from './components/UserDashboard';
-import IssuedBooks from './components/IssuedBooks'
-import BookDetails from './components/BookDetails'
-import UserBooks from './components/UserBooks'
-import AdminBooks from './components/AdminBooks'
-import BookSection from './components/BookSection'
-import UserSection from './components/UserSection'
-import AddBook from './components/AddBook'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import "./App.css";
+import Home from "./components/Home";
+import Services from "./components/Services";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Logout from "./components/Logout";
+import Library from "./components/Library";
+import AdminDashboard from "./components/AdminDashboard";
+import UserDashboard from "./components/UserDashboard";
+import IssuedBooks from "./components/IssuedBooks";
+import BookDetails from "./components/BookDetails";
+import UserBooks from "./components/UserBooks";
+import AdminBooks from "./components/AdminBooks";
+import BookSection from "./components/BookSection";
+import UserSection from "./components/UserSection";
+import AddBook from "./components/AddBook";
+import EditUser from "./components/EditUser";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <div className="App">
-
         <Switch>
-
           <Route exact path="/">
             <Home />
           </Route>
@@ -57,15 +55,15 @@ function App() {
           </Route>
 
           <Route path="/issued-books">
-            <IssuedBooks/>
+            <IssuedBooks />
           </Route>
 
           <Route path="/user-books">
-            <UserBooks/>
+            <UserBooks />
           </Route>
 
           <Route path="/admin-books">
-            <AdminBooks/>
+            <AdminBooks />
           </Route>
 
           <Route path="/books/:id">
@@ -80,15 +78,16 @@ function App() {
             <UserSection />
           </Route>
 
+          <Route path="/edit-user/:id">
+            <EditUser />
+          </Route>
+
           <Route path="/add-books">
             <AddBook />
           </Route>
-
         </Switch>
-
       </div>
     </Router>
   );
 }
 export default App;
-
