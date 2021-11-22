@@ -1,10 +1,19 @@
 import React from "react";
 import { Table, Button} from "react-bootstrap";
+import {useHistory} from "react-router-dom"
 import moment from 'moment'
 
 const BooksList = ({ books, loading }) => {
+  const history = useHistory()
   if (loading) {
     return <h2>loading...</h2>
+  }
+  const deleteBook = (id) => {
+    fetch('http://localhost:5000/books/'+id,{
+      method: 'DELETE',
+    }).then(() => {
+      history.push('/admin-dashboard')
+    })
   }
   return (
     <div>
@@ -17,7 +26,6 @@ const BooksList = ({ books, loading }) => {
             <th>Page Count</th>
             <th>Published Date</th>
             <th>Status</th>
-            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -30,8 +38,7 @@ const BooksList = ({ books, loading }) => {
               <td>{book.pageCount}</td>
               <td>{moment(book.publishedDate).format('DD-MM-YYYY')}</td>
               <td>{book.status}</td>
-              <td><Button variant="primary"><i className="fas fa-edit"></i></Button></td>
-              <td><Button variant="danger"><i className="fas fa-trash"></i></Button></td>
+              <td><Button onClick={()=>{deleteBook(book._id)}} variant="danger"><i className="fas fa-trash"></i></Button></td>
             </tr>
           ))}
         </tbody>
