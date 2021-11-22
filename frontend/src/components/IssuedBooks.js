@@ -44,7 +44,7 @@ const IssuedBooks = () => {
                 Account
               </ListGroup.Item>
               <ListGroup.Item variant="info">Users</ListGroup.Item>
-              <ListGroup.Item variant="info">Books</ListGroup.Item>
+              <ListGroup.Item as = {Link} to='/book-section' variant="info">Books</ListGroup.Item>
               <ListGroup.Item
                 as={Link}
                 to="/issued-books"

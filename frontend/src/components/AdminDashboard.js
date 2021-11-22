@@ -53,7 +53,7 @@ const AdminDashboard = () => {
                         <ListGroup className="mt-4">
                             <ListGroup.Item as = {Link} to='/admin-dashboard' variant="info" active>Account</ListGroup.Item>
                             <ListGroup.Item variant="info">Users</ListGroup.Item>
-                            <ListGroup.Item variant="info">Books</ListGroup.Item>
+                            <ListGroup.Item as = {Link} to='/book-section' variant="info">Books</ListGroup.Item>
                             <ListGroup.Item as = {Link} to='/issued-books' variant="info">Issued Books</ListGroup.Item>
                             <ListGroup.Item as={Link} to="/admin-books" variant="info">My Books</ListGroup.Item>
                         </ListGroup>
