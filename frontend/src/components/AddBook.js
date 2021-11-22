@@ -9,23 +9,32 @@ const AddBook = () => {
   const [isbn, setIsbn] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [authors, setAuthors] = useState([]);
+  const [pageCount, setPageCount] = useState("");
   const [categories, setCategories] = useState([]);
   const [status, setStatus] = useState("");
 
-  const history = useHistory()
+  const history = useHistory();
 
   const postBook = (e) => {
     e.preventDefault();
-    const book = { title, isbn, shortDescription, authors, categories, status };
+    const book = {
+      title,
+      isbn,
+      shortDescription,
+      authors,
+      pageCount,
+      categories,
+      status,
+    };
 
-    fetch('http://localhost:5000/books',{
-        method:'POST',
-        headers:{'Content-type': 'application/json'},
-        body:JSON.stringify(book)
-    }).then(()=>{
-        window.alert('New Book Added!');
-        history.push()
-    })
+    fetch("http://localhost:5000/books", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(book),
+    }).then(() => {
+      window.alert("New Book Added!");
+      history.push("/book-section");
+    });
   };
   return (
     <div>
@@ -83,6 +92,17 @@ const AddBook = () => {
                     </Form.Group>
                   </Col>
                 </Row>
+
+                <Form.Group className="mb-3">
+                  <Form.Label>Page Count</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={pageCount}
+                    onChange={(e) => setPageCount(e.target.value)}
+                    name="isbn"
+                    required
+                  />
+                </Form.Group>
 
                 <Form.Group className="mb-3">
                   <Form.Label>Description</Form.Label>
