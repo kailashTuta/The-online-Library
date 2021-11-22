@@ -53,7 +53,9 @@ const BookSection = () => {
               <ListGroup.Item as={Link} to="/admin-dashboard" variant="info">
                 Account
               </ListGroup.Item>
-              <ListGroup.Item as={Link} to="/user-section" variant="info">Users</ListGroup.Item>
+              <ListGroup.Item as={Link} to="/user-section" variant="info">
+                Users
+              </ListGroup.Item>
               <ListGroup.Item
                 as={Link}
                 to="/book-section"
@@ -72,8 +74,10 @@ const BookSection = () => {
           </Col>
           <Col md={10}>
             <Row>
-              <Col md={4} className="mt-2">
-                <Button as={Link} to="/add-books" variant="success"><i className="fas fa-plus-circle"></i> Add</Button>
+              <Col md={4} className="mt-1">
+                <Button as={Link} to="/add-books" variant="success">
+                  <i className="fas fa-plus-circle"></i> Add
+                </Button>
               </Col>
             </Row>
             <Row>

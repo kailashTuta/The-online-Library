@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Button, Card, Badge, Row, Col } from "react-bootstrap";
 
+
 const Books = ({ books, loading, user }) => {
   const [title, setTitle] = useState("");
   const [userId, setUserId] = useState("");
@@ -10,7 +11,13 @@ const Books = ({ books, loading, user }) => {
 
   const history = useHistory();
   if (loading) {
-    return <h2>loading...</h2>;
+    return (
+      <div className="d-flex justify-content-center mt-5">
+        <div className="spinner-border text-info" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
   const issueBook = async (e) => {
     e.preventDefault();
@@ -42,6 +49,7 @@ const Books = ({ books, loading, user }) => {
   return (
     <div>
       <div className="container">
+        <h1 className="text-info text-center mt-2 display-3">Library</h1>
         <Button
           as={Link}
           to={user.role === "admin" ? "admin-dashboard" : "user-dashboard"}
@@ -59,7 +67,9 @@ const Books = ({ books, loading, user }) => {
               >
                 <Card.Img variant="top" src={book.thumbnailUrl} />
                 <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
+                  <Card.Title className="text-secondary">
+                    {book.title}
+                  </Card.Title>
                   {book.categories.map((category, i) => (
                     <Badge pill bg="info" className="m-1" key={i}>
                       {category}

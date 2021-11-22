@@ -1,6 +1,6 @@
 import React from "react";
-import {Link } from "react-router-dom";
-import { Container, Row, Col, ListGroup} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import UserList from "./UserList";
 import NavabarComp from "./NavabarComp";
 import useFetch from "../hooks/useFetch";
@@ -42,8 +42,14 @@ const UserSection = () => {
           </Col>
           <Col md={10}>
             {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>}
-            {users&& <UserList users={users} />}
+            {isPending && (
+              <div className="d-flex justify-content-center mt-5">
+                <div className="spinner-border text-info" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            )}
+            {users && <UserList users={users} />}
           </Col>
         </Row>
       </Container>
