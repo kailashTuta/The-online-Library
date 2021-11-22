@@ -12,6 +12,7 @@ import BookDetails from './components/BookDetails'
 import UserBooks from './components/UserBooks'
 import AdminBooks from './components/AdminBooks'
 import BookSection from './components/BookSection'
+import AddBook from './components/AddBook'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -72,6 +73,10 @@ function App() {
 
           <Route path="/book-section">
             <BookSection />
+          </Route>
+
+          <Route path="/add-books">
+            <AddBook />
           </Route>
 
         </Switch>

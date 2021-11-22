@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button} from "react-bootstrap";
 import moment from 'moment'
 
 const BooksList = ({ books, loading }) => {
@@ -17,6 +17,8 @@ const BooksList = ({ books, loading }) => {
             <th>Page Count</th>
             <th>Published Date</th>
             <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +30,8 @@ const BooksList = ({ books, loading }) => {
               <td>{book.pageCount}</td>
               <td>{moment(book.publishedDate).format('DD-MM-YYYY')}</td>
               <td>{book.status}</td>
+              <td><Button variant="primary"><i className="fas fa-edit"></i></Button></td>
+              <td><Button variant="danger"><i className="fas fa-trash"></i></Button></td>
             </tr>
           ))}
         </tbody>

@@ -8,7 +8,6 @@ const BookSchema = mongoose.Schema({
     isbn: String,
     pageCount: Number,
     publishedDate: Date,
-    thumbnailUrl: String,
     shortDescription: {
         type: String,
         required: true
