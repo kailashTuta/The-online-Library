@@ -77,6 +77,7 @@ const Library = () => {
     <div>
       <NavabarComp />
       <Container>
+        <h1 className="text-info text-center mt-2">Library</h1>
         <Books books={currentBooks} loading={loading} user={userData} />
         <PaginationComp
           booksPerPage={booksPerPage}
